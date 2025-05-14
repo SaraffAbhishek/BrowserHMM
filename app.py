@@ -16,6 +16,8 @@ llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
 async def retrieve_voyage_and_arrival(booking_id: str):
     prompt = (
         f"Given a HMM booking ID '{booking_id}', retrieve the voyage number and arrival date from http://seacargotracking.net."
+        "Go to http://seacargotracking.net, scroll and click on HYUNDAI Merchant Marine (HMM), it opens a new tab. Switch to that tab. Click on e-Servcie. A popup comes, close that and then enter the booking ID in the Track & Trace input box. Click on the Retrieve button to submit. Find the Voyage number and arrival date for booking id."
+        "If the access is blocked by a firwewall or any error occurs, close the tab and switch back to the previous tab."
     )
     if ACTIONS_FILE.exists():
         with open(ACTIONS_FILE, "r") as f:
