@@ -7,8 +7,5 @@ source venv/bin/activate
 echo "⬇️ Installing dependencies..."
 pip install -r requirements.txt
 
-echo "🌐 Installing Playwright browser..."
-python -m playwright install
-
 echo "🚀 Running the HMM tracking agent..."
 python app.py
