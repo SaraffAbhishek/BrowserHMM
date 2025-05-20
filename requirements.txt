@@ -1,4 +1,4 @@
-langchain==0.3.14
-langchain-google-genai==2.0.8
-browser-use==0.1.40
-playwright==1.52.0
+langchain==0.3.21
+langchain-google-genai==2.1.2
+browser-use==0.1.48
+psutil
