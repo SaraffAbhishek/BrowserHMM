@@ -99,4 +99,5 @@ if __name__ == "__main__":
         "Enter HMM booking ID (or press Enter to use default 'SINI25432400'): "
     ).strip() or "SINI25432400"
     asyncio.run(retrieve_voyage_and_arrival(booking_id))
+    input()
     
