@@ -8,6 +8,7 @@ from browser_use import Agent, Browser
 from browser_use import BrowserConfig
 import warnings
 import psutil
+from browser_use.browser.context import BrowserContextConfig
 
 warnings.filterwarnings("ignore")
 load_dotenv()
@@ -32,7 +33,12 @@ if CHROME_BINARY_PATH:
     browser = Browser(
         config=BrowserConfig(
             browser_binary_path=CHROME_BINARY_PATH,
-            keep_alive=False
+            keep_alive=False,
+            new_context_config=BrowserContextConfig(
+                window_width=1920,
+                window_height=1080,
+                no_viewport=False
+            )
         )
     )
 else:
@@ -51,7 +57,7 @@ async def retrieve_voyage_and_arrival(booking_id: str):
 
     task_prompt= (
         f"Given a HMM booking ID '{booking_id}', retrieve the voyage number and arrival date from http://seacargotracking.net."
-        "Go to http://seacargotracking.net, scroll and click on HYUNDAI Merchant Marine (HMM), it opens a new tab. Switch to that tab. Click on e-Servcie. A popup comes, close that and then enter the booking ID in the Track & Trace input box. Click on the Retrieve button to submit. Find the Voyage number and arrival date for booking id."
+        "Go to http://seacargotracking.net, scroll and click on HYUNDAI Merchant Marine (HMM), wait for a new tab to open and then switch to that tab. Click on e-Servcie, wait and switch to the new tab opened. A popup comes, close that and then enter the booking ID in the Track Trace input field. Click on the Retrieve button to submit. Find the Voyage number and arrival date for booking id."
     )
 
 
